@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>TrixBank | Login</title>
+{% endblock title %}
+
+{% block content %}
+<div class="w-full h-screen flex items-center justify-center px-2 space-x-2">
+    <form method="post">
+        {% csrf_token %}
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm mx-auto max-w-sm" data-v0-t="card">
+          <div class="flex flex-col p-6 space-y-1">
+            <h1 class="text-center font-bold text-2xl font-poppins">TrixBank</h1>
+            <h3 class="whitespace-nowrap tracking-tight text-2xl font-bold">Login</h3>
+            <p class="text-xs text-muted-foreground">Enter your username and password to login to your account</p>
+          </div>
+          <div class="p-6">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="flex gap-2 items-center {% if message.tags %}{{ message.tags }}{% endif %} px-4 py-3 rounded-md relative" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        <span class="block sm:inline">{{ message }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            <div class="space-y-4">
+              
+              {{ form|crispy }}
+
+              <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-stone-900 text-stone-50 hover:bg-stone-700 h-10 px-4 py-2 w-full">
+                Login
+              </button>
+            </div>
+            <div class="text-center mt-2">
+              <span class="text-sm text-center">Don't have an account ? </span><a class="underline cursor-pointer font-medium underline-offset-4" href="{% url 'sign-in' %}">Sign Up</a>
+          </div>
+          </div>
+      </div>
+    
+    </form>
+</div>
+
+
+{% endblock content %}

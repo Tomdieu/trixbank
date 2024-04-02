@@ -1,0 +1,42 @@
+{% extends 'core/dashboard/profile/layout.html' %}
+{% load custom_filters %}
+
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>TrixBank | Profile</title>
+{% endblock title %}
+
+{% block profile %}
+<div class="flex-1 h-full overflow-y-scroll">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">User Information</h1>
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <p class="text-sm text-gray-600 font-semibold">Username</p>
+                    <p class="text-lg text-gray-800 font-semibold">{{ user.username }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600 font-semibold">Full Name</p>
+                    <p class="text-lg text-gray-800 font-semibold">{{ user.first_name }} {{ user.last_name }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600 font-semibold">Email</p>
+                    <p class="text-lg text-gray-800 font-semibold">{{ user.email }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600 font-semibold">Date Joined</p>
+                    <p class="text-lg text-gray-800 font-semibold">{{ user.date_joined|date:"F d, Y" }}</p>
+                </div>
+                <div class="col-span-2">
+                    <p class="text-sm text-gray-600 font-semibold">Last Login</p>
+                    <p class="text-lg text-gray-800 font-semibold">{{ user.last_login|date:"F d, Y H:i:s" }}</p>
+                </div>
+                <!-- Add more fields as needed -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock profile%}

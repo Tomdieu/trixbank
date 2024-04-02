@@ -1,0 +1,93 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block content %}
+
+<main class="h-full w-full container mx-auto px-3">
+    <header
+      class="py-5 px-2 border-none border-b-slate-500 flex items-center justify-between"
+    >
+      <a class="inline-block" href="/">
+        <h1 class="text-2xl font-bold font-sans cursor-pointer select-none">TrixBank</h1>
+      </a>
+  
+      <div class="flex items-center justify-between space-x-3">
+        <a
+        href="{% url 'about' %}"
+          class="hover:underline cursor-pointer font-medium underline-offset-4"
+          >About</a
+        >
+        {% comment %} <a
+          href="#"
+          class="hover:underline cursor-pointer font-medium underline-offset-4"
+          >Contact</a
+        > {% endcomment %}
+        <a
+        href="{% url 'login' %}"
+          class="hover:underline cursor-pointer font-medium underline-offset-4"
+          >Log in</a
+        >
+        <a
+        href="{% url 'sign-in' %}"
+          class="btn inline-flex items-center justify-center bg-inherit cursor-pointer border border-slate-500 hover:bg-stone-900 hover:text-stone-50 hover:border-stone-50 text-stone-900 font-normal"
+          >Sign Up</a
+        >
+      </div>
+    </header>
+
+<section class="w-full">
+    <div class="container py-6 space-y-6 px-4 md:px-6">
+      <div class="flex flex-col items-center justify-center space-y-2 text-center">
+        
+        <div class="space-y-1">
+          <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">About Our Bank App</h1>
+        </div>
+      </div>
+      <div class="mx-auto max-w-[800px] space-y-4 text-center">
+        <p class="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            Providing a seamless and secure banking experience for our customers.
+          </p>
+      </div>
+      <div class="mx-auto max-w-sm space-y-4">
+        <h2 class="text-2xl font-bold tracking-wide uppercase text-gray-500 dark:text-gray-400">Technologies Used</h2>
+        <ul class="list-disc list-inside grid gap-2">
+          <li>Django</li>
+          <li>Html</li>
+          <li>Tailwind Css</li>
+        </ul>
+      </div>
+      <div class="mx-auto max-w-sm space-y-4">
+        <h2 class="text-2xl font-bold tracking-wide uppercase text-gray-500 dark:text-gray-400">Developper</h2>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-3xl font-bold mb-2">Tomdieu Ivan</h1>
+            <h2 class="text-lg mb-4">Github: <a href="https://github.com/tomdieu" class="text-blue-500 hover:underline">https://github.com/tomdieu</a></h2>
+            <h3 class="flex items-center justify-center space-x-2 gap-2 text-center w-full">Made with 
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-4 h-4 text-red-600 lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+
+            </h3>
+        </div>
+        
+      </div>
+      <div class="mx-auto max-w-sm space-y-2 text-center">
+        <h2 class="text-2xl font-bold">Contact Us</h2>
+        <p class="text-gray-500 dark:text-gray-400">Have questions? write me at <a href="mailto:ivan.tomdieu@gmail.com">Email</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+    <p class="text-xs text-gray-500 dark:text-gray-400">© 2024 Acme Inc. All rights reserved.</p>
+    <nav class="sm:ml-auto flex gap-4 sm:gap-6">
+      <Link class="text-xs hover:underline underline-offset-4" href="#">
+        Terms of Service
+      </Link>
+      <Link class="text-xs hover:underline underline-offset-4" href="#">
+        Privacy
+      </Link>
+    </nav>
+  </footer>
+
+  </main>
+
+{% endblock content %}
