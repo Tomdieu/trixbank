@@ -70,25 +70,25 @@ def send_withdrawal_notification(sender, instance: Withdraw, created, **kwargs):
         
 # Send Notification through channel 
 
-@receiver(post_save, sender=Notification)
-def send_notification(sender, instance, created, **kwargs):
-    from django.core.serializers import serialize
-    if created:
-        # Get the user associated with the notification
-        user = instance.user
+# @receiver(post_save, sender=Notification)
+# def send_notification(sender, instance, created, **kwargs):
+#     from django.core.serializers import serialize
+#     if created:
+#         # Get the user associated with the notification
+#         user = instance.user
         
-        channel_layer = get_channel_layer()
+#         channel_layer = get_channel_layer()
         
-        DATA = {
-            "message": instance.message,
-            "timestamp": instance.timestamp,
-        }
+#         DATA = {
+#             "message": instance.message,
+#             "timestamp": instance.timestamp,
+#         }
         
-        # Send notification through WebSocket
-        async_to_sync(channel_layer.group_send)(
-            f"notifications_{user.id}",
-            {
-                "type": "send_notification",
-                "notification": DATA
-            }
-        )
+#         # Send notification through WebSocket
+#         async_to_sync(channel_layer.group_send)(
+#             f"notifications_{user.id}",
+#             {
+#                 "type": "send_notification",
+#                 "notification": DATA
+#             }
+#         )

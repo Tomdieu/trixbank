@@ -1,1 +1,3 @@
 .trunk
+
+__pycache__/**
